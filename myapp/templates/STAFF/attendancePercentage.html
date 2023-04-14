@@ -1,0 +1,50 @@
+{% extends 'staff/indexStaff1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="attPercentage1">
+  <table  class="table table-hover" border="4px">
+    <tr bgcolor="grey">
+      <td colspan="2">SUBJECT</td>
+
+      <td colspan="2"><label>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i.subject_id.id}}" {% if i.subject_id.id == sub %}selected{% endif %}>{{ i.subject_id.subject }}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr bgcolor="silver">
+      <td width="69">FROM DATE</td>
+      <td width="1"><label>
+      <input type="date" name="textfield" value="{{d1}}">
+      </label></td>
+      <td width="156">TO DATE</td>
+      <td width="18"><label>
+      <input type="date" name="textfield2" value="{{d2}}">
+        
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="4"><div align="center"><label>
+        <div align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="SEARCH ATTENDANCE" />
+          </div>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">STUDENT</td>
+      <td colspan="2">ATTENDANCE(%)</td>
+    </tr>
+    {% for i in v %}
+    <tr>
+      <td colspan="2">{{i.0}}</td>
+      <td colspan="2">&nbsp;{{i.2}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}

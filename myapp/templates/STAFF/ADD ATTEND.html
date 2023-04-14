@@ -1,0 +1,42 @@
+{% extends 'staff/indexStaff1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addAtt1">
+  <table class="table table-hover" border="4px">
+    <tr bgcolor="grey">
+      <td><label>
+        SUBJECT
+        <select name="select2">
+          {% for i in val %}
+          <option value="{{i.subject_id.id}}" {% if i.subject_id.id == sid %}selected{% endif %}>{{ i.subject_id.subject }}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+      <td><label>
+        <input class="btn btn-info" type="submit" name="Submit" value="SEARCH" required pattern="[A-Z a-z]{2-50}" />
+      </label></td>
+    </tr>
+    <tr bgcolor="silver">
+      <td>STUDENT NAME </td>
+      <td>ATTENDANCE</td>
+    </tr>
+    {% for i in v %}
+    <tr>
+      <td>{{ i.std_name }}</td>
+      <td><label>
+        <input type="checkbox" name="checkbox" value="{{i.id}}"  />
+      </label></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="DONE" required />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

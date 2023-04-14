@@ -1,0 +1,60 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'admin/indexAdmin.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/editSub_post">
+  <table class="table table-hover" border="4px">
+    <tr>
+      <td>SEMESTER</td>
+      <td><select name="select2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>COURSE</td>
+      <td><select name="select">
+
+
+        {% for i in val2 %}
+        <option {% if i.id == val.course_id_id %}selected {% endif %} value="{{ i.id }}">{{ i.course_name }}</option>
+        {% endfor %}
+      </select>      </td>
+    </tr>
+    <tr>
+      <td>SUBJECT</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.subject }}" required pattern="[A-Z a-z]{2-50}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>PH</td>
+      <td><label>
+        <input type="text" name="ph" value="{{ val.ph }}" required pattern="[0-9]{1-2}" />
+      </label></td>
+    </tr><tr>
+      <td>TH</td>
+      <td><label>
+        <input type="text" name="th" value="{{ val.th }}" required pattern="[0-9]{1-2}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="UPDATE" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

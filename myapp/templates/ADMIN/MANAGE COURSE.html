@@ -1,0 +1,31 @@
+{% extends 'admin/indexAdmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover" border="4px">
+    <tr bgcolor="silver">
+      <td>COURSE NAME </td>
+      <td>DESCRIPTION</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.course_name }}</td>
+      <td>&nbsp;{{ i.description }}</td>
+      <td><p><a class="btn btn-info" href="/edit_course/{{ i.id }}">EDIT</a></p>
+      <p><a class="btn btn-info" href="/deleteCourse/{{ i.id }}">DELETE</a></p></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><div align="center"><a class="btn btn-success" href="addcourse">ADD</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

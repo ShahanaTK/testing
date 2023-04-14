@@ -1,0 +1,24 @@
+{% extends 'admin/indexAdmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="genNotifi1">
+  <table class="table table-hover">
+    <tr>
+      <td>NOTIFICATION</td>
+      <td>
+        <div class="col-xs-4">
+        <input type="text" class="form-control" name="textfield" required/>
+  </div>
+        <label>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="SEND" />
+</td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

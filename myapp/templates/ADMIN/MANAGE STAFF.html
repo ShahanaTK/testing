@@ -1,0 +1,29 @@
+{% extends 'admin/indexAdmin.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover" border="4px">
+    <tr bgcolor="silver">
+      <td>NAME</td>
+      <td>QUALIFICATION</td>
+      <td>PHONE NO </td>
+      <td>EMAIL ID </td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{ i.name }}&nbsp;</td>
+      <td>&nbsp;{{ i.qualification }}</td>
+      <td>{{ i.phone }}&nbsp;</td>
+      <td>{{ i.email_id }}&nbsp;</td>
+      <td><p><a class="btn btn-info" href="{% url 'editStaff' id=i.login_id.id %}#about">EDIT</a></p>
+      <p><a class="btn btn-info" href="{% url 'deleteStaff' id=i.login_id.id %}#about">DELETE</a></p></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="5"><div align="center"><a class="btn btn-success" href="addStaff">ADD</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

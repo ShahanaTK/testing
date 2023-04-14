@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'staff/indexStaff1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="manageAtt1">
+  <table  class="table table-hover" border="4px">
+    <tr bgcolor="grey">
+      <td width="191"><label>
+        SUBJECT
+            <select name="select">
+              {% for i in val %}
+              <option value="{{i.subject_id.id}}"  {% if i.subject_id.id == sid %}selected{% endif %}>{{ i.subject_id.subject }}</option>>
+              {% endfor %}
+            </select>
+      </label></td>
+      <td width="144">DATE
+        <label>
+        <input type="date" name="textfield" value="{{dt}}">
+      </label></td>
+      <td colspan="2"><label>
+        <input class="btn btn-info" type="submit" name="Submit" value="SEARCH" />
+      </label></td>
+    </tr>
+    <tr bgcolor="silver">
+      <td colspan="2">STUDENT</td>
+      <td width="49">ROLL NO </td>
+      <td width="104">ATTENDANCE</td>
+    </tr>
+    {% for i in vv %}
+    <tr>
+      <td colspan="2">{{ i.student_id.std_name }}&nbsp;</td>
+
+      <!--<td><label></label></td>-->
+
+      <td>&nbsp;{{ i.student_id.roll_no }}</td>
+
+      <td>{% if i.std_attendance == '1' %}PRESENT {% else %} ABSENT {% endif %}</td>
+
+
+
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="4"><div align="center"><a class="btn btn-success" href="addAtt">ADD</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'staff/indexStaff1.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'editStud1' %}">
+  <table class="table table-hover" border="4px">
+    <tr>
+      <td>NAME</td>
+      <td><input type="text"  value="{{val.std_name}}" name="textfield" required pattern="[A-Z a-z]{2,25}"/></td>
+    </tr>
+    <tr>
+      <td>ROLL NO </td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{val.roll_no}}" required [0-9]/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td><input type="text"  value="{{val.stu_place}}" name="textfield2" required pattern="[A-Z a-z]{2,50}"/></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><input type="text"  value="{{val.stu_post}}" name="textfield3" required pattern="[A-Z a-z]{2,50}" /></td>
+    </tr>
+    <tr>
+      <td>PIN</td>
+      <td><input type="text"  value="{{val.stu_pin}}" name="textfield4" required pattern="[0-9]{6}" /></td>
+    </tr>
+    <tr>
+      <td>DATE OF BIRTH </td>
+      <td><input type="date"  value="{{val.DOB|date:'Y-m-d' }}"name="textfield12" required min="1950-01-01" max="2005-01-01" /></td>
+    </tr>
+    <tr>
+      <td>GENDER</td>
+	  <td>MALE
+        <label>
+        <input name="radiobutton" type="radio" value="Male" required checked {% if val.gender == "Male" %}checked{% endif %}/>
+        FEMALE
+        <input name="radiobutton" type="radio" value="Female" {% if val.gender == "Female" %}checked{% endif %}/>
+        </label></td>
+    </tr>
+    <tr>
+      <td>COURSE</td>
+      <td>{{val.course_id.course_name}}</td>
+    </tr>
+    <tr>
+      <td>SEMESTER</td>
+      <td> {{val.semester}}</td>
+    </tr>
+    <tr>
+      <td>PHONE NO </td>
+      <td><input type="text"  value="{{val.stu_phone}}" name="textfield7" required pattern="[6789][0-9]{9}" /></td>
+    </tr>
+    <tr>
+      <td>EMAIL ID </td>
+      <td><input type="text"  value="{{val.stu_email}}" name="textfield8" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><div align="center">
+          <input class="btn btn-success "type="submit" name="Submit" value="EDIT" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

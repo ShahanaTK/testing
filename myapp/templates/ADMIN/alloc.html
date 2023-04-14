@@ -1,0 +1,52 @@
+{% extends 'admin/indexAdmin.html' %}
+{% block body %}
+
+<body><form action="{% url 'alloSub1'%}" method="post">
+    <table class=" table table-hover">
+  <tr>
+    <td>SUBJECT</td>
+    <td><select class="form-control" name="select">
+        <option>SELECT</option>
+        {% for i in val %}
+        <option value="{{i.id}}">{{ i.subject }}</option>
+        {% endfor %}
+    </select>    </td>
+  </tr>
+  <tr>
+    <td>STAFF</td>
+    <td><select class="form-control" name="select2">
+        <option>SELECT</option>
+        {% for i in val2 %}
+        <option value="{{i.login_id.id}}">{{ i.name }}</option>
+        {% endfor %}
+    </select>    </td>
+  </tr>
+ <tr>
+      <td colspan="2" align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="ALLOCATE" />
+
+      </label></td>
+    </tr>
+</table>
+<table class="table table-hover" border="4px">
+    <tr bgcolor="silver">
+      <td>STAFF NAME</td>
+      <td>SUBJECT</td>
+      <td></td>
+
+    </tr>
+    {% for i in asub %}
+
+    <tr>
+
+        <td>&nbsp;{{i.staff_id.name}}</td>
+        <td>&nbsp;{{i.subject_id.subject}}</td>
+
+        <td><p><a href="{% url 'delAllSub' id=i.id %}" class="btn btn-info" >DELETE</a></p></td>
+    </tr>
+{% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

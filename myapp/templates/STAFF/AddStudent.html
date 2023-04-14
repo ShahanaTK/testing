@@ -1,0 +1,84 @@
+{% extends 'staff/indexStaff1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addStud1">
+  <table class="table table-hover" border="4px">
+    <tr>
+      <td>NAME</td>
+      <td><input type="text" name="textfield" required pattern="[A-Z a-z]{2,25}" /></td>
+    </tr>
+    <tr>
+      <td>ROLL NO </td>
+      <td><label>
+        <input type="text" name="textfield5" required [0-9]>
+      </label></td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td><input type="text" name="textfield2" required pattern="[A-Z a-z]{2,50}"/></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><input type="text" name="textfield3" required pattern="[A-Z a-z]{2,50}"/></td>
+    </tr>
+    <tr>
+      <td>PIN</td>
+      <td><input type="text" name="textfield4" required pattern="[0-9]{6}" /></td>
+    </tr>
+    <tr>
+      <td>DATE OF BIRTH </td>
+      <td><input type="text" name="textfield12" required min="1950-01-01" max="2005-01-01"/></td>
+    </tr>
+    <tr>
+      <td>GENDER</td>
+	  <td>MALE
+      <input name="radiobutton" type="radio" value="male" checked />
+      FEMALE
+      <input name="radiobutton" type="radio" value="female" /></td>
+    </tr>
+    <tr>
+      <td>COURSE</td>
+      <td><select name="select" required>
+        <option>SELECT</option>
+        {% for i in val %}
+        <option value="{{i.id}}">{{i.course_name}}</option>
+        {% endfor %}
+      </select>      </td>
+    </tr>
+    <tr>
+      <td>SEMESTER</td>
+      <td><select name="select2" required>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>      </td>
+    </tr>
+    <tr>
+      <td>PHONE NO </td>
+      <td><input type="text" name="textfield7"  required pattern="[6789][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <td>EMAIL ID </td>
+      <td><input type="text" name="textfield8" required/></td>
+    </tr>
+    <tr>
+      <td>USER NAME </td>
+      <td><input type="text" name="textfield9" required pattern="[A-Z a-z]{2,20}" /></td>
+    </tr>
+    <tr>
+      <td>PASSWORD</td>
+      <td><input type="text" name="textfield10" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Use atleast an Upper case,Lower case and a Digit" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+          <input class="btn btn-success" type="submit" name="Submit" value="ADD" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
